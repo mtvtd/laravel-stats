@@ -2,19 +2,18 @@
 
 namespace Mtvtd\LaravelStats\ShareableMetrics\Metrics;
 
-use Composer\InstalledVersions;
 use Mtvtd\LaravelStats\ShareableMetrics\Metric;
 use Mtvtd\LaravelStats\ShareableMetrics\CollectableMetric;
 
-class InstalledVersion extends Metric implements CollectableMetric
+class Host extends Metric implements CollectableMetric
 {
 	public function name(): string
 	{
-		return 'version';
+		return 'host';
 	}
 
 	public function value()
 	{
-		return InstalledVersions::getVersion('mtvtd/laravel-stats');
+		return parse_url(config('app.url'), PHP_URL_HOST);
 	}
 }

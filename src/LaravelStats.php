@@ -10,9 +10,9 @@ use Illuminate\Console\Scheduling\CallbackEvent;
 
 class LaravelStats
 {
-	public function version()
+	public function version(): ?string
 	{
-		return InstalledVersions::getVersion('Mtvtd/manage-laravel-stats');
+		return InstalledVersions::getVersion('mtvtd/laravel-stats');
 	}
 
 	public function fingerprintTask(Event $event): string

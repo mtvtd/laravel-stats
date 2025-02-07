@@ -8,20 +8,21 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Http\Client\HttpClientException;
 
 class ScheduledTaskEventLogJob implements ShouldQueue
 {
-	use Dispatchable;
-	use InteractsWithQueue;
 	use Queueable;
+	use Dispatchable;
 	use SerializesModels;
+	use InteractsWithQueue;
 
-	public $payload;
+	public $tries = 1;
 
-	public function __construct(array $payload)
-	{
-		$this->payload = $payload;
+	public function __construct(
+		public array $payload,
+	) {
+		//
 	}
 
 	public function handle(): void
@@ -37,12 +38,13 @@ class ScheduledTaskEventLogJob implements ShouldQueue
 		try {
 			Http::timeout(5)
 				->retry(2, 10)
+				->baseUrl(config('laravel-stats.base-url'))
 				->withHeaders([
 					'Accept' => 'application/json',
-					'x-api-token' => config('laravel-stats.token'),
 				])
-				->post(config('laravel-stats.base-url') . '/api/task-event', $this->payload);
-		} catch (ConnectionException $exception) {
+				->withToken(config('laravel-stats.token'))
+				->post('/api/task-event', $this->payload);
+		} catch (HttpClientException $exception) {
 			// Do nothing.
 		}
 	}

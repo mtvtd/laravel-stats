@@ -9,15 +9,16 @@ use Mtvtd\LaravelStats\ShareableMetrics\Metrics;
 
 class LaravelStatsCommand extends Command
 {
-	public $signature = 'manage-laravel-stats {--dry-run}';
-	public $description = 'Send all the laravel stats to manage-laravel.';
+	public $signature = 'mtvtd:laravel-stats {--dry-run}';
+	public $description = 'Send all the laravel stats to status.mtvtd.nl.';
 
 	public function handle(): int
 	{
 		$this->output->title('Uploading all stats to ManageLaravel.');
 
 		$data = collect([
-			Metrics\ManageLaravelTeam::class,
+			Metrics\Host::class,
+			Metrics\Environment::class,
 			Metrics\Name::class,
 			Metrics\InstalledVersion::class,
 			Metrics\Url::class,
@@ -43,10 +44,12 @@ class LaravelStatsCommand extends Command
 			return self::SUCCESS;
 		}
 
-		$response = Http::withHeaders([
-			'Accept' => 'application/json',
-			'x-api-token' => config('laravel-stats.token'),
-		])->post(config('laravel-stats.base-url') . '/api/stats', $data->toArray());
+		$response = Http::baseUrl(config('laravel-stats.base-url'))
+			->withHeaders([
+				'Accept' => 'application/json',
+			])
+			->withToken(config('laravel-stats.token'))
+			->post('/api/stats', $data->toArray());
 
 		if ( ! $response->ok()) {
 			$this->error('Something went wrong..');
