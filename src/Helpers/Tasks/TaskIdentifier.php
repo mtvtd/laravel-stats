@@ -4,8 +4,8 @@ namespace Mtvtd\LaravelStats\Helpers\Tasks;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\Scheduling\Event;
-use Illuminate\Console\Scheduling\CallbackEvent;
 use Mtvtd\LaravelStats\Facades\LaravelStats;
+use Illuminate\Console\Scheduling\CallbackEvent;
 
 class TaskIdentifier
 {

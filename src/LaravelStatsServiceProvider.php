@@ -3,8 +3,8 @@
 namespace Mtvtd\LaravelStats;
 
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Mtvtd\LaravelStats\Commands\LaravelStatsCommand;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Mtvtd\LaravelStats\Subscribers\ScheduledTaskSubscriber;
 
 class LaravelStatsServiceProvider extends PackageServiceProvider

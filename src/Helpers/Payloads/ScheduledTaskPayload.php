@@ -2,11 +2,11 @@
 
 namespace Mtvtd\LaravelStats\Helpers\Payloads;
 
+use Mtvtd\LaravelStats\Facades\LaravelStats;
 use Illuminate\Console\Events\ScheduledTaskFailed;
 use Illuminate\Console\Events\ScheduledTaskSkipped;
 use Illuminate\Console\Events\ScheduledTaskFinished;
 use Illuminate\Console\Events\ScheduledTaskStarting;
-use Mtvtd\LaravelStats\Facades\LaravelStats;
 
 class ScheduledTaskPayload
 {
