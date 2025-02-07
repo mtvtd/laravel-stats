@@ -1,6 +1,6 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Helpers\SourceControl;
+namespace Mtvtd\LaravelStats\Helpers\SourceControl;
 
 class GitInfo
 {

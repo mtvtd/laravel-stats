@@ -1,9 +1,9 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\ShareableMetrics\Metrics;
+namespace Mtvtd\LaravelStats\ShareableMetrics\Metrics;
 
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\Metric;
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\CollectableMetric;
+use Mtvtd\LaravelStats\ShareableMetrics\Metric;
+use Mtvtd\LaravelStats\ShareableMetrics\CollectableMetric;
 
 class PhpVersion extends Metric implements CollectableMetric
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats;
+namespace Mtvtd\LaravelStats;
 
 use ReflectionClass;
 use ReflectionFunction;
@@ -8,11 +8,11 @@ use Composer\InstalledVersions;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\CallbackEvent;
 
-class ManageLaravelStats
+class LaravelStats
 {
 	public function version()
 	{
-		return InstalledVersions::getVersion('spaanproductions/manage-laravel-stats');
+		return InstalledVersions::getVersion('Mtvtd/manage-laravel-stats');
 	}
 
 	public function fingerprintTask(Event $event): string

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Helpers\SourceControl;
+namespace Mtvtd\LaravelStats\Helpers\SourceControl;
 
-use Spaanproductions\ManageLaravelStats\Helpers\SystemCommandExecutor;
+use Mtvtd\LaravelStats\Helpers\SystemCommandExecutor;
 
 class GitInfoCollector
 {

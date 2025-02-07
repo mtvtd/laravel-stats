@@ -1,12 +1,12 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Helpers\Payloads;
+namespace Mtvtd\LaravelStats\Helpers\Payloads;
 
 use Illuminate\Console\Events\ScheduledTaskFailed;
 use Illuminate\Console\Events\ScheduledTaskSkipped;
 use Illuminate\Console\Events\ScheduledTaskFinished;
 use Illuminate\Console\Events\ScheduledTaskStarting;
-use Spaanproductions\ManageLaravelStats\Facades\ManageLaravel;
+use Mtvtd\LaravelStats\Facades\LaravelStats;
 
 class ScheduledTaskPayload
 {
@@ -21,7 +21,7 @@ class ScheduledTaskPayload
 	{
 		return array_filter([
 			'fingerprint' => $this->fingerprint(),
-			'version' => ManageLaravel::version(),
+			'version' => LaravelStats::version(),
 			'hostname' => gethostname(),
 			'ip' => request()->getClientIp(),
 			'environment' => app()->environment(),
@@ -32,8 +32,8 @@ class ScheduledTaskPayload
 	public function fingerprint(): string
 	{
 		return sha1(vsprintf('%s.%s.%s.%s.%s', [
-			config('manage-stats.team-id'),
-			ManageLaravel::fingerprintTask($this->event->task),
+			config('laravel-stats.team-id'),
+			LaravelStats::fingerprintTask($this->event->task),
 			getmypid(),
 			spl_object_id($this->event->task),
 			spl_object_hash($this->event->task),

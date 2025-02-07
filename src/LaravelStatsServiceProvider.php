@@ -1,13 +1,13 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats;
+namespace Mtvtd\LaravelStats;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Spaanproductions\ManageLaravelStats\Commands\ManageLaravelStatsCommand;
-use Spaanproductions\ManageLaravelStats\Subscribers\ScheduledTaskSubscriber;
+use Mtvtd\LaravelStats\Commands\LaravelStatsCommand;
+use Mtvtd\LaravelStats\Subscribers\ScheduledTaskSubscriber;
 
-class ManageLaravelStatsServiceProvider extends PackageServiceProvider
+class LaravelStatsServiceProvider extends PackageServiceProvider
 {
 	public function configurePackage(Package $package): void
 	{
@@ -17,12 +17,12 @@ class ManageLaravelStatsServiceProvider extends PackageServiceProvider
 		 */
 
 		$package
-			->name('manage-laravel-stats')
-			->hasConfigFile('manage-stats')
+			->name('laravel-stats')
+			->hasConfigFile('laravel-stats')
 			// ->hasViews()
 			// ->hasMigration('create_manage-laravel-stats_table')
 			->hasCommands([
-				ManageLaravelStatsCommand::class,
+				LaravelStatsCommand::class,
 			]);
 	}
 

@@ -1,9 +1,9 @@
-# This is my package ManageLaravelStats
+# This is my package LaravelStats
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spaanproductions/manage-laravel-stats.svg?style=flat-square)](https://packagist.org/packages/spaanproductions/manage-laravel-stats)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/spaanproductions/manage-laravel-stats/run-tests?label=tests)](https://github.com/spaanproductions/manage-laravel-stats/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/spaanproductions/manage-laravel-stats/Check%20&%20fix%20styling?label=code%20style)](https://github.com/spaanproductions/manage-laravel-stats/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/spaanproductions/manage-laravel-stats.svg?style=flat-square)](https://packagist.org/packages/spaanproductions/manage-laravel-stats)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/mtvtd/laravel-stats.svg?style=flat-square)](https://packagist.org/packages/mtvtd/laravel-stats)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/mtvtd/laravel-stats/run-tests?label=tests)](https://github.com/mtvtd/laravel-stats/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/mtvtd/laravel-stats/Check%20&%20fix%20styling?label=code%20style)](https://github.com/mtvtd/laravel-stats/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/mtvtd/laravel-stats.svg?style=flat-square)](https://packagist.org/packages/mtvtd/laravel-stats)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
@@ -12,19 +12,19 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 You can install the package via composer:
 
 ```bash
-composer require spaanproductions/manage-laravel-stats
+composer require mtvtd/laravel-stats
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Spaanproductions\ManageLaravelStats\ManageLaravelStatsServiceProvider" --tag="manage-laravel-stats-migrations"
+php artisan vendor:publish --provider="Mtvtd\LaravelStats\LaravelStatsServiceProvider" --tag="laravel-stats-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Spaanproductions\ManageLaravelStats\ManageLaravelStatsServiceProvider" --tag="manage-laravel-stats-config"
+php artisan vendor:publish --provider="Mtvtd\LaravelStats\LaravelStatsServiceProvider" --tag="laravel-stats-config"
 ```
 
 ## Usage
@@ -47,7 +47,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Spaan Productions](https://github.com/spaanproductions)
+- [Spaan Productions](https://github.com/mtvtd)
 - [All Contributors](../../contributors)
 
 ## License

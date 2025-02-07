@@ -1,13 +1,13 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\ShareableMetrics\Metrics;
+namespace Mtvtd\LaravelStats\ShareableMetrics\Metrics;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\Application;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\Metric;
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\CollectableMetric;
+use Mtvtd\LaravelStats\ShareableMetrics\Metric;
+use Mtvtd\LaravelStats\ShareableMetrics\CollectableMetric;
 
 class ScheduledTasks extends Metric implements CollectableMetric
 {

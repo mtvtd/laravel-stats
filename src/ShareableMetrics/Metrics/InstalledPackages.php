@@ -1,14 +1,14 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\ShareableMetrics\Metrics;
+namespace Mtvtd\LaravelStats\ShareableMetrics\Metrics;
 
 use ReflectionExtension;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Composer\InstalledVersions;
 use Illuminate\Support\Facades\File;
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\Metric;
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\CollectableMetric;
+use Mtvtd\LaravelStats\ShareableMetrics\Metric;
+use Mtvtd\LaravelStats\ShareableMetrics\CollectableMetric;
 
 class InstalledPackages extends Metric implements CollectableMetric
 {

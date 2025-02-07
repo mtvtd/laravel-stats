@@ -1,12 +1,12 @@
 {
-    "name": "spaanproductions/manage-laravel-stats",
-    "description": "This is my package ManageLaravelStats",
+    "name": "mtvtd/laravel-stats",
+    "description": "This is my package LaravelStats",
     "keywords": [
-        "spaanproductions",
+        "mtvtd",
         "laravel",
-        "manage-laravel-stats"
+        "laravel-stats"
     ],
-    "homepage": "https://github.com/spaanproductions/manage-laravel-stats",
+    "homepage": "https://github.com/mtvtd/laravel-stats",
     "license": "MIT",
     "authors": [
         {
@@ -31,13 +31,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spaanproductions\\ManageLaravelStats\\": "src",
-            "Spaanproductions\\ManageLaravelStats\\Database\\Factories\\": "database/factories"
+            "Mtvtd\\LaravelStats\\": "src",
+            "Mtvtd\\LaravelStats\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spaanproductions\\ManageLaravelStats\\Tests\\": "tests"
+            "Mtvtd\\LaravelStats\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -51,10 +51,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spaanproductions\\ManageLaravelStats\\ManageLaravelStatsServiceProvider"
+                "Mtvtd\\LaravelStats\\LaravelStatsServiceProvider"
             ],
             "aliases": {
-                "ManageLaravelStats": "Spaanproductions\\ManageLaravelStats\\ManageLaravelStatsFacade"
+                "LaravelStats": "Mtvtd\\LaravelStats\\LaravelStatsFacade"
             }
         }
     },

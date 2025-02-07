@@ -1,14 +1,14 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Subscribers;
+namespace Mtvtd\LaravelStats\Subscribers;
 
 use Illuminate\Events\Dispatcher;
 use Illuminate\Console\Events\ScheduledTaskFailed;
 use Illuminate\Console\Events\ScheduledTaskSkipped;
 use Illuminate\Console\Events\ScheduledTaskFinished;
 use Illuminate\Console\Events\ScheduledTaskStarting;
-use Spaanproductions\ManageLaravelStats\Jobs\ScheduledTaskEventLogJob;
-use Spaanproductions\ManageLaravelStats\Helpers\Payloads\ScheduledTaskPayload;
+use Mtvtd\LaravelStats\Jobs\ScheduledTaskEventLogJob;
+use Mtvtd\LaravelStats\Helpers\Payloads\ScheduledTaskPayload;
 
 class ScheduledTaskSubscriber
 {

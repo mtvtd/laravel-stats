@@ -1,9 +1,9 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\ShareableMetrics\Metrics;
+namespace Mtvtd\LaravelStats\ShareableMetrics\Metrics;
 
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\Metric;
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\CollectableMetric;
+use Mtvtd\LaravelStats\ShareableMetrics\Metric;
+use Mtvtd\LaravelStats\ShareableMetrics\CollectableMetric;
 
 class ManageLaravelTeam extends Metric implements CollectableMetric
 {
@@ -14,6 +14,6 @@ class ManageLaravelTeam extends Metric implements CollectableMetric
 
 	public function value()
 	{
-		return config('manage-stats.team-id');
+		return config('laravel-stats.team-id');
 	}
 }

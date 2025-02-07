@@ -1,10 +1,10 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Tests;
+namespace Mtvtd\LaravelStats\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Spaanproductions\ManageLaravelStats\ManageLaravelStatsServiceProvider;
+use Mtvtd\LaravelStats\LaravelStatsServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -14,7 +14,7 @@ class TestCase extends Orchestra
 
 		Factory::guessFactoryNamesUsing(
 			function (string $modelName) {
-				return 'Spaanproductions\\ManageLaravelStats\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
+				return 'Mtvtd\\LaravelStats\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
 			}
 		);
 	}
@@ -22,7 +22,7 @@ class TestCase extends Orchestra
 	protected function getPackageProviders($app)
 	{
 		return [
-			ManageLaravelStatsServiceProvider::class,
+			LaravelStatsServiceProvider::class,
 		];
 	}
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Database\Factories;
+namespace Mtvtd\LaravelStats\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Helpers\Payloads;
+namespace Mtvtd\LaravelStats\Helpers\Payloads;
 
 class ScheduledTaskFinishedPayload extends ScheduledTaskPayload
 {

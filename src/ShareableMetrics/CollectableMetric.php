@@ -1,6 +1,6 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\ShareableMetrics;
+namespace Mtvtd\LaravelStats\ShareableMetrics;
 
 interface CollectableMetric
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Tests;
+namespace Mtvtd\LaravelStats\Tests;
 
 class ExampleTest extends TestCase
 {

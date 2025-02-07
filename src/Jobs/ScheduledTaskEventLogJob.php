@@ -1,6 +1,6 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Jobs;
+namespace Mtvtd\LaravelStats\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Http;
@@ -24,14 +24,9 @@ class ScheduledTaskEventLogJob implements ShouldQueue
 		$this->payload = $payload;
 	}
 
-	/**
-	 * Execute the job.
-	 *
-	 * @return void
-	 */
-	public function handle()
+	public function handle(): void
 	{
-		if (is_null(config('manage-stats.token'))) {
+		if (is_null(config('laravel-stats.token'))) {
 			return;
 		}
 
@@ -44,9 +39,9 @@ class ScheduledTaskEventLogJob implements ShouldQueue
 				->retry(2, 10)
 				->withHeaders([
 					'Accept' => 'application/json',
-					'x-api-token' => config('manage-stats.token'),
+					'x-api-token' => config('laravel-stats.token'),
 				])
-				->post(config('manage-stats.base-url') . '/api/task-event', $this->payload);
+				->post(config('laravel-stats.base-url') . '/api/task-event', $this->payload);
 		} catch (ConnectionException $exception) {
 			// Do nothing.
 		}

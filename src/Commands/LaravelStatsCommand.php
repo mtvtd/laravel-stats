@@ -1,18 +1,18 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\Commands;
+namespace Mtvtd\LaravelStats\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\Metric;
-use Spaanproductions\ManageLaravelStats\ShareableMetrics\Metrics;
+use Mtvtd\LaravelStats\ShareableMetrics\Metric;
+use Mtvtd\LaravelStats\ShareableMetrics\Metrics;
 
-class ManageLaravelStatsCommand extends Command
+class LaravelStatsCommand extends Command
 {
 	public $signature = 'manage-laravel-stats {--dry-run}';
 	public $description = 'Send all the laravel stats to manage-laravel.';
 
-	public function handle()
+	public function handle(): int
 	{
 		$this->output->title('Uploading all stats to ManageLaravel.');
 
@@ -45,8 +45,8 @@ class ManageLaravelStatsCommand extends Command
 
 		$response = Http::withHeaders([
 			'Accept' => 'application/json',
-			'x-api-token' => config('manage-stats.token'),
-		])->post(config('manage-stats.base-url') . '/api/stats', $data->toArray());
+			'x-api-token' => config('laravel-stats.token'),
+		])->post(config('laravel-stats.base-url') . '/api/stats', $data->toArray());
 
 		if ( ! $response->ok()) {
 			$this->error('Something went wrong..');

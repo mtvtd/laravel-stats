@@ -1,6 +1,6 @@
 <?php
 
-namespace Spaanproductions\ManageLaravelStats\ShareableMetrics;
+namespace Mtvtd\LaravelStats\ShareableMetrics;
 
 abstract class Metric implements CollectableMetric
 {
