@@ -15,22 +15,21 @@ You can install the package via composer:
 composer require mtvtd/laravel-stats
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Mtvtd\LaravelStats\LaravelStatsServiceProvider" --tag="laravel-stats-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 ```bash
 php artisan vendor:publish --provider="Mtvtd\LaravelStats\LaravelStatsServiceProvider" --tag="laravel-stats-config"
 ```
 
-## Usage
+Add .env variables: 
+```dotenv
+# status.mtvtd.nl
+LARAVEL_STATS_TOKEN=[your-api-token]
+LARAVEL_STATS_SCHEDULER_LOGGING_ENABLED=true
+```
 
-```php
-// 
+Add the update command to de deploy script: 
+```bash
+php artisan mtvtd:laravel-stats
 ```
 
 ## Changelog
