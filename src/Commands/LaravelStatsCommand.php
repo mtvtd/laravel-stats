@@ -23,7 +23,7 @@ class LaravelStatsCommand extends Command
 				Metrics\Name::class,
 				Metrics\InstalledVersion::class,
 				Metrics\Url::class,
-				Metrics\GitInfo::class,
+				// Metrics\GitInfo::class,
 				Metrics\InstalledPackages::class,
 				Metrics\PhpVersion::class,
 				Metrics\LaravelVersion::class,
