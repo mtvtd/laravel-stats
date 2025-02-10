@@ -3,6 +3,7 @@
 namespace Mtvtd\LaravelStats\Jobs;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -49,7 +50,22 @@ class ScheduledTaskEventLogJob implements ShouldQueue
 				->withToken(config('laravel-stats.token'))
 				->post('/api/task-event', $this->payload);
 		} catch (HttpClientException $exception) {
-			// Do nothing.
+			if (config('laravel-stats.log-exceptions')) {
+				if (class_exists('Bugsnag\BugsnagLaravel\Facades\Bugsnag')) {
+					\Bugsnag\BugsnagLaravel\Facades\Bugsnag::registerCallback(function ($report) use ($exception) {
+						$report->setMetaData([
+							'laravel-stats' => [
+								'payload' => $this->payload,
+								'exception' => $exception->getMessage(),
+							],
+						], false);
+					});
+
+					\Bugsnag\BugsnagLaravel\Facades\Bugsnag::notifyException($exception);
+				} else {
+					Log::error($exception->getMessage());
+				}
+			}
 		}
 	}
 }
