@@ -16,27 +16,33 @@ class LaravelStatsCommand extends Command
 	{
 		$this->output->title('Uploading all stats to ManageLaravel.');
 
-		$data = collect([
-			Metrics\Host::class,
-			Metrics\Environment::class,
-			Metrics\Name::class,
-			Metrics\InstalledVersion::class,
-			Metrics\Url::class,
-			Metrics\GitInfo::class,
-			Metrics\InstalledPackages::class,
-			Metrics\PhpVersion::class,
-			Metrics\LaravelVersion::class,
-			Metrics\ServerInfo::class,
-			Metrics\ScheduledTasks::class,
-		])->map(function (string $metricClass) {
-			return new $metricClass();
-		})->map(function (Metric $metric) {
-			return $metric->toArray();
-		})->mapWithKeys(function ($item) {
-			return [
-				key($item) => $item[key($item)],
-			];
-		});
+		try {
+			$data = collect([
+				Metrics\Host::class,
+				Metrics\Environment::class,
+				Metrics\Name::class,
+				Metrics\InstalledVersion::class,
+				Metrics\Url::class,
+				Metrics\GitInfo::class,
+				Metrics\InstalledPackages::class,
+				Metrics\PhpVersion::class,
+				Metrics\LaravelVersion::class,
+				Metrics\ServerInfo::class,
+				Metrics\ScheduledTasks::class,
+			])->map(function (string $metricClass) {
+				return new $metricClass();
+			})->map(function (Metric $metric) {
+				return $metric->toArray();
+			})->mapWithKeys(function ($item) {
+				return [
+					key($item) => $item[key($item)],
+				];
+			});
+		} catch (\Throwable $exception) {
+			$this->output->error('Collecting data failed!');
+
+			return self::FAILURE;
+		}
 
 		if ($this->option('dry-run')) {
 			dump($data->toArray());
@@ -44,12 +50,18 @@ class LaravelStatsCommand extends Command
 			return self::SUCCESS;
 		}
 
-		$response = Http::baseUrl(config('laravel-stats.base-url'))
-			->withHeaders([
-				'Accept' => 'application/json',
-			])
-			->withToken(config('laravel-stats.token'))
-			->post('/api/stats', $data->toArray());
+		try {
+			$response = Http::baseUrl(config('laravel-stats.base-url'))
+				->withHeaders([
+					'Accept' => 'application/json',
+				])
+				->withToken(config('laravel-stats.token'))
+				->post('/api/stats', $data->toArray());
+		} catch (\Throwable $exception) {
+			$this->output->error('Posting data to API failed!');
+
+			return self::FAILURE;
+		}
 
 		if ( ! $response->ok()) {
 			$this->error('Something went wrong..');
