@@ -14,6 +14,10 @@ class ScheduledTaskSubscriber
 {
 	public function handle($event): void
 	{
+		if ( ! config('laravel-stats.scheduler-logging-enabled')) {
+			return;
+		}
+
 		$data = ScheduledTaskPayload::fromEvent($event);
 		dispatch(new ScheduledTaskEventLogJob($data->toArray()));
 	}

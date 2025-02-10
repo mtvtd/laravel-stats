@@ -27,6 +27,10 @@ class ScheduledTaskEventLogJob implements ShouldQueue
 
 	public function handle(): void
 	{
+		if ( ! config('laravel-stats.scheduler-logging-enabled')) {
+			return;
+		}
+
 		if (is_null(config('laravel-stats.token'))) {
 			return;
 		}
