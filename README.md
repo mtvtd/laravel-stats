@@ -1,8 +1,8 @@
 # This is my package LaravelStats
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mtvtd/laravel-stats.svg?style=flat-square)](https://packagist.org/packages/mtvtd/laravel-stats)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/mtvtd/laravel-stats/run-tests?label=tests)](https://github.com/mtvtd/laravel-stats/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/mtvtd/laravel-stats/Check%20&%20fix%20styling?label=code%20style)](https://github.com/mtvtd/laravel-stats/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Tests](https://github.com/mtvtd/laravel-stats/actions/workflows/run-tests.yml/badge.svg)](https://github.com/mtvtd/laravel-stats/actions/workflows/run-tests.yml)
+[![Check & fix styling](https://github.com/mtvtd/laravel-stats/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/mtvtd/laravel-stats/actions/workflows/php-cs-fixer.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/mtvtd/laravel-stats.svg?style=flat-square)](https://packagist.org/packages/mtvtd/laravel-stats)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
