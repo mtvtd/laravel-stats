@@ -68,4 +68,13 @@ class ScheduledTaskEventLogJob implements ShouldQueue
 			}
 		}
 	}
+
+	/** Tags for Laravel Telescope */
+	public function tags(): array
+	{
+		return [
+			'job:ScheduledTaskEventLogJob',
+			'command:' . data_get($this->payload, 'task.command', 'unknown'),
+		];
+	}
 }
