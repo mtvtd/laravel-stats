@@ -5,8 +5,8 @@ namespace Mtvtd\LaravelStats\ShareableMetrics\Metrics;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Artisan;
-use Mtvtd\LaravelStats\ShareableMetrics\Metric;
 use Illuminate\Foundation\Console\AboutCommand;
+use Mtvtd\LaravelStats\ShareableMetrics\Metric;
 use Mtvtd\LaravelStats\ShareableMetrics\CollectableMetric;
 
 class LaravelAbout extends Metric implements CollectableMetric
