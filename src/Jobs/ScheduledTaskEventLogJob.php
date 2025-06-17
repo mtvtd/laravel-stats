@@ -41,7 +41,7 @@ class ScheduledTaskEventLogJob implements ShouldQueue
 		}
 
 		try {
-			Http::timeout(5)
+			Http::timeout(10)
 				->retry(2, 10)
 				->baseUrl(config('laravel-stats.base-url'))
 				->withHeaders([
