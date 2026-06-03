@@ -23,13 +23,17 @@ class LaravelAboutTest extends TestCase
 		$this->assertSame('about', (new LaravelAbout())->name());
 	}
 
-	public function test_value_is_cached_under_the_lstats_about_key()
+	public function test_value_reads_from_the_lstats_about_cache_key()
 	{
-		Cache::forget('LSTATS::ABOUT:APPLICATION');
+		Cache::put(
+			'LSTATS::ABOUT:APPLICATION',
+			json_encode(['Environment' => ['App Version' => '10.0.0']]),
+			now()->addHour()
+		);
 
-		(new LaravelAbout())->value();
+		$value = (new LaravelAbout())->value();
 
-		$this->assertTrue(Cache::has('LSTATS::ABOUT:APPLICATION'));
+		$this->assertSame(['Environment' => ['App Version' => '10.0.0']], $value);
 	}
 
 	public function test_value_returns_an_empty_array_when_collection_throws()
