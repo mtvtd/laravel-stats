@@ -10,8 +10,8 @@ use Illuminate\Console\Events\ScheduledTaskFinished;
 use Illuminate\Console\Events\ScheduledTaskStarting;
 use Mtvtd\LaravelStats\Helpers\Payloads\ScheduledTaskFailedPayload;
 use Mtvtd\LaravelStats\Helpers\Payloads\ScheduledTaskSkippedPayload;
-use Mtvtd\LaravelStats\Helpers\Payloads\ScheduledTaskStartingPayload;
 use Mtvtd\LaravelStats\Helpers\Payloads\ScheduledTaskFinishedPayload;
+use Mtvtd\LaravelStats\Helpers\Payloads\ScheduledTaskStartingPayload;
 
 class EventPayloadsTest extends TestCase
 {

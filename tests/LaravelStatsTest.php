@@ -4,9 +4,7 @@ namespace Mtvtd\LaravelStats\Tests;
 
 use Composer\InstalledVersions;
 use Mtvtd\LaravelStats\LaravelStats;
-use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Console\Scheduling\CallbackEvent;
 
 class LaravelStatsTest extends TestCase
 {

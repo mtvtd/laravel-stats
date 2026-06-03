@@ -4,8 +4,8 @@ namespace Mtvtd\LaravelStats\Tests\Commands;
 
 use Illuminate\Support\Facades\Http;
 use Mtvtd\LaravelStats\Tests\TestCase;
-use Illuminate\Http\Client\ConnectionException;
 use Symfony\Component\VarDumper\VarDumper;
+use Illuminate\Http\Client\ConnectionException;
 use Mtvtd\LaravelStats\Commands\LaravelStatsCommand;
 
 class LaravelStatsCommandTest extends TestCase
