@@ -16,9 +16,9 @@ class GitInfoCollector
 	/**
 	 * Constructor.
 	 */
-	public function __construct()
+	public function __construct(?SystemCommandExecutor $executor = null)
 	{
-		$this->executor = new SystemCommandExecutor();
+		$this->executor = $executor ?? new SystemCommandExecutor();
 	}
 
 	/**
