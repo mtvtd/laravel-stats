@@ -32,6 +32,21 @@ Add the update command to de deploy script:
 php artisan mtvtd:laravel-stats
 ```
 
+## Backups
+
+When the project uses [spatie/laravel-backup](https://github.com/spatie/laravel-backup) (v8, v9 or v10), the package
+reports its backups to status.mtvtd.nl, whatever disk they are on (S3, Dropbox, local):
+
+- `mtvtd:laravel-stats` sends every backup destination with its newest backups (date and size).
+- After every `backup:run`, the result is sent right away, including the error when the backup failed.
+  This goes through the queue, like the scheduler logging.
+
+Nothing changes for projects without laravel-backup. To turn it off:
+
+```dotenv
+LARAVEL_STATS_BACKUP_REPORTING_ENABLED=false
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

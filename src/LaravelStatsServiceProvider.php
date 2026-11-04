@@ -5,6 +5,7 @@ namespace Mtvtd\LaravelStats;
 use Spatie\LaravelPackageTools\Package;
 use Mtvtd\LaravelStats\Commands\LaravelStatsCommand;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Mtvtd\LaravelStats\Subscribers\BackupSubscriber;
 use Mtvtd\LaravelStats\Subscribers\ScheduledTaskSubscriber;
 
 class LaravelStatsServiceProvider extends PackageServiceProvider
@@ -30,6 +31,9 @@ class LaravelStatsServiceProvider extends PackageServiceProvider
 	{
 		if ($this->app->runningInConsole()) {
 			$this->app->make('events')->subscribe(ScheduledTaskSubscriber::class);
+
+			// spatie/laravel-backup runs its backups from the console (backup:run).
+			$this->app->make('events')->subscribe(BackupSubscriber::class);
 		}
 	}
 }

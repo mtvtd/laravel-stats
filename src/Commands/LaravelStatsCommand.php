@@ -30,6 +30,7 @@ class LaravelStatsCommand extends Command
 				Metrics\ServerInfo::class,
 				Metrics\ScheduledTasks::class,
 				Metrics\LaravelAbout::class,
+				Metrics\Backups::class,
 			])->map(function (string $metricClass) {
 				return new $metricClass();
 			})->map(function (Metric $metric) {

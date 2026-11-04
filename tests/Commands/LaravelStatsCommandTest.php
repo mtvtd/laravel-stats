@@ -47,7 +47,7 @@ class LaravelStatsCommandTest extends TestCase
 			$expectedKeys = [
 				'host', 'environment', 'name', 'version', 'url', 'packages',
 				'php-version', 'laravel-version', 'server-info',
-				'scheduled-tasks', 'about',
+				'scheduled-tasks', 'about', 'backups',
 			];
 
 			foreach ($expectedKeys as $key) {
@@ -118,6 +118,7 @@ class LaravelStatsCommandTest extends TestCase
 			'Metrics\\ServerInfo::class',
 			'Metrics\\ScheduledTasks::class',
 			'Metrics\\LaravelAbout::class',
+			'Metrics\\Backups::class',
 		];
 
 		foreach ($expected as $needle) {
