@@ -5,10 +5,10 @@ namespace Mtvtd\LaravelStats\Tests\Subscribers;
 use Exception;
 use Illuminate\Support\Facades\Bus;
 use Mtvtd\LaravelStats\Tests\TestCase;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Mtvtd\LaravelStats\Jobs\BackupReportJob;
 use Mtvtd\LaravelStats\Subscribers\BackupSubscriber;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 class BackupSubscriberTest extends TestCase
 {

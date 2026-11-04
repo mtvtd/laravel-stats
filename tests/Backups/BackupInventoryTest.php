@@ -4,12 +4,12 @@ namespace Mtvtd\LaravelStats\Tests\Backups;
 
 use Illuminate\Support\Carbon;
 use Mtvtd\LaravelStats\Tests\TestCase;
+use Spatie\Backup\BackupDestination\Backup;
+use Mtvtd\LaravelStats\Backups\BackupInventory;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
-use Mtvtd\LaravelStats\Backups\BackupInventory;
-use Spatie\Backup\BackupDestination\Backup;
-use Mtvtd\LaravelStats\ShareableMetrics\Metrics\Backups;
 use Spatie\Backup\BackupDestination\BackupDestination;
+use Mtvtd\LaravelStats\ShareableMetrics\Metrics\Backups;
 
 class BackupInventoryTest extends TestCase
 {
