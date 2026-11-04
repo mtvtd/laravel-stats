@@ -1,6 +1,9 @@
 name: Check & fix styling
 
-on: [push]
+# Only on branches: on a tag push the fixes can't be committed back, so the run would always fail.
+on:
+  push:
+    branches: ['**']
 
 jobs:
   php-cs-fixer:
