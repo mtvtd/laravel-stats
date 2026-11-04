@@ -12,6 +12,9 @@ class TestCase extends Orchestra
 	{
 		parent::setUp();
 
+		// Static state of the fake laravel-backup destination must not leak from one test into the next.
+		Fakes\FakeBackupDestination::$disks = [];
+
 		Factory::guessFactoryNamesUsing(
 			function (string $modelName) {
 				return 'Mtvtd\\LaravelStats\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
