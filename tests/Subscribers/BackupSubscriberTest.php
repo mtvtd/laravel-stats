@@ -6,8 +6,8 @@ use Exception;
 use Illuminate\Support\Facades\Bus;
 use Mtvtd\LaravelStats\Tests\TestCase;
 use Mtvtd\LaravelStats\Jobs\BackupReportJob;
-use Mtvtd\LaravelStats\Tests\Fakes\FakeBackupEvents;
 use Mtvtd\LaravelStats\Subscribers\BackupSubscriber;
+use Mtvtd\LaravelStats\Tests\Fakes\FakeBackupEvents;
 use Mtvtd\LaravelStats\Tests\Fakes\FakeBackupDestination;
 
 class BackupSubscriberTest extends TestCase
