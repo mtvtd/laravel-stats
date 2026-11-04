@@ -44,6 +44,9 @@ jobs:
 
       - name: Install dependencies
         run: |
+          # Every Laravel 11 release has a security advisory, which Composer refuses to install by default.
+          # We only test compatibility here (projects still run Laravel 11), so allow them in CI.
+          composer config policy.advisories.block false
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
