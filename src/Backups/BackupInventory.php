@@ -12,9 +12,17 @@ class BackupInventory
 {
 	public const DESTINATION_CLASS = 'Spatie\Backup\BackupDestination\BackupDestination';
 
+	/** @var string The BackupDestination class; the tests pass a fake one. */
+	protected $destinationClass;
+
+	public function __construct(?string $destinationClass = null)
+	{
+		$this->destinationClass = $destinationClass ?? self::DESTINATION_CLASS;
+	}
+
 	public function available(): bool
 	{
-		return class_exists(self::DESTINATION_CLASS) && config('backup.backup.name') !== null;
+		return class_exists($this->destinationClass) && config('backup.backup.name') !== null;
 	}
 
 	/**
@@ -27,7 +35,7 @@ class BackupInventory
 		}
 
 		$name = (string) config('backup.backup.name');
-		$destinationClass = self::DESTINATION_CLASS;
+		$destinationClass = $this->destinationClass;
 
 		return collect(config('backup.backup.destination.disks', []))
 			->map(function ($disk) use ($name, $destinationClass) {

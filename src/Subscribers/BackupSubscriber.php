@@ -22,11 +22,14 @@ class BackupSubscriber
 
 		[$disk, $name] = $this->destination($event);
 
+		// Only BackupHasFailed carries an exception, in every laravel-backup version.
+		$failed = isset($event->exception);
+
 		dispatch(new BackupReportJob([
-			'type' => is_a($event, self::FAILED) ? 'failed' : 'succeeded',
+			'type' => $failed ? 'failed' : 'succeeded',
 			'disk' => $disk,
 			'name' => $name,
-			'error' => isset($event->exception) ? $event->exception->getMessage() : null,
+			'error' => $failed ? $event->exception->getMessage() : null,
 		]));
 	}
 

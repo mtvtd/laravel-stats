@@ -1,45 +1,26 @@
 <?php
 
-/*
- * Minimal stand-ins for spatie/laravel-backup's BackupDestination and Backup, so the backup reporting
- * can be tested without installing that package. Load only in tests that run in a separate process.
- */
-
-namespace Spatie\Backup\BackupDestination;
+namespace Mtvtd\LaravelStats\Tests\Fakes;
 
 use Exception;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
-class Backup
+/**
+ * Stands in for Spatie\Backup\BackupDestination\BackupDestination. Set the disks per test in $disks.
+ */
+class FakeBackupDestination
 {
-	public function __construct(private string $path, private Carbon $date, private float $size)
-	{
-	}
-
-	public function path(): string
-	{
-		return $this->path;
-	}
-
-	public function date(): Carbon
-	{
-		return $this->date;
-	}
-
-	public function sizeInBytes(): float
-	{
-		return $this->size;
-	}
-}
-
-class BackupDestination
-{
-	/** @var array<string, array{reachable: bool, error?: string, backups?: array<int, Backup>}> */
+	/** @var array<string, array{reachable?: bool, error?: string, throws?: bool, backups?: array<int, FakeBackup>}> */
 	public static array $disks = [];
 
-	public function __construct(private string $diskName, private string $backupName)
+	private string $diskName;
+
+	private string $backupName;
+
+	public function __construct(string $diskName, string $backupName)
 	{
+		$this->diskName = $diskName;
+		$this->backupName = $backupName;
 	}
 
 	public static function create(string $diskName, string $backupName): self
@@ -80,7 +61,7 @@ class BackupDestination
 
 	public function usedStorage(): float
 	{
-		return (float) $this->backups()->sum(function (Backup $backup) {
+		return (float) $this->backups()->sum(function (FakeBackup $backup) {
 			return $backup->sizeInBytes();
 		});
 	}
