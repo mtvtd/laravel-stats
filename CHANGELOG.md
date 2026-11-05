@@ -2,7 +2,7 @@
 
 All notable changes to `manage-laravel-stats` will be documented in this file.
 
-## Unreleased
+## 2.3.0 - 2026-11-05
 
 - Report the NPM packages from `package.json` (with the versions pinned in `package-lock.json`) as `npm-packages`, so status.mtvtd.nl can show them.
 
