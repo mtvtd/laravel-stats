@@ -32,6 +32,13 @@ Add the update command to de deploy script:
 php artisan mtvtd:laravel-stats
 ```
 
+## Packages
+
+`mtvtd:laravel-stats` sends the packages in `composer.json` with their installed version, and every other installed
+package that comes along with them (read from `vendor/composer/installed.json`), with the `composer.json` packages that
+pull it in. status.mtvtd.nl checks all of them against the Packagist security advisories, the same source as
+`composer audit`.
+
 ## Backups
 
 When the project uses [spatie/laravel-backup](https://github.com/spatie/laravel-backup) (v8, v9 or v10), the package
