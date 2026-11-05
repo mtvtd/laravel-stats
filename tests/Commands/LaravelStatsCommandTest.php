@@ -113,6 +113,7 @@ class LaravelStatsCommandTest extends TestCase
 			'Metrics\\InstalledVersion::class',
 			'Metrics\\Url::class',
 			'Metrics\\InstalledPackages::class',
+			'Metrics\\InstalledNpmPackages::class',
 			'Metrics\\Dependencies::class',
 			'Metrics\\PhpVersion::class',
 			'Metrics\\LaravelVersion::class',

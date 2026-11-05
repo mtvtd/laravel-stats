@@ -2,6 +2,10 @@
 
 All notable changes to `manage-laravel-stats` will be documented in this file.
 
+## Unreleased
+
+- Report the NPM packages from `package.json` (with the versions pinned in `package-lock.json`) as `npm-packages`, so status.mtvtd.nl can show them.
+
 ## 2.2.0 - 2026-11-05
 
 - Also report the installed packages that are not in `composer.json` (the ones that come along with them), with the `composer.json` packages that pull them in, so status.mtvtd.nl can find vulnerabilities in those as well.
