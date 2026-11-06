@@ -2,6 +2,10 @@
 
 All notable changes to `manage-laravel-stats` will be documented in this file.
 
+## 2.4.0 - 2026-11-06
+
+- Also report the NPM packages in `package-lock.json` that are not in `package.json` (the ones that come along with them), as `npm-dependencies`, with the `package.json` packages that pull them in, so status.mtvtd.nl can find vulnerabilities in those as well. Needs a v2 or v3 lockfile (npm 7 and newer).
+
 ## 2.3.0 - 2026-11-05
 
 - Report the NPM packages from `package.json` (with the versions pinned in `package-lock.json`) as `npm-packages`, so status.mtvtd.nl can show them.

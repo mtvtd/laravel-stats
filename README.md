@@ -39,6 +39,10 @@ package that comes along with them (read from `vendor/composer/installed.json`),
 pull it in. status.mtvtd.nl checks all of them against the Packagist security advisories, the same source as
 `composer audit`.
 
+The same goes for NPM: the packages in `package.json` with the version from `package-lock.json`, and every other
+package in the lockfile with the `package.json` packages that pull it in (lockfile v2 or v3, npm 7 and newer).
+status.mtvtd.nl checks those against the npm registry advisories, the same source as `npm audit`.
+
 ## Backups
 
 When the project uses [spatie/laravel-backup](https://github.com/spatie/laravel-backup) (v8, v9 or v10), the package
